@@ -1,0 +1,28 @@
+#scalar Date
+type EmployeeDto{
+    id: Float!
+    name: String
+    age: Int
+    salary: Int
+    joiningDate: String
+    status: Boolean
+    department: Department
+}
+
+enum Department {
+    DEVELOPMENT
+    TESTER
+    ADMIN
+    ACCOUNTS
+    MANAGEMENT
+}
+
+type Mutation {
+    createEmployee(name: String, age: Int, salary: Int, joiningDate: String, status: Boolean, department: Department): EmployeeDto
+}
+
+type Query {
+    getAllEmployee: [EmployeeDto]
+    getOneEmployee(id: Float): EmployeeDto
+}
+
